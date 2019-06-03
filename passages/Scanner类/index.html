@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>Scanner类 | 小站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Java基础,Scanner,输入输出,">
+  
+
+  
+  <meta name="description" content="陈育滨的小站">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":true},
+    welcome: {"enable":true,"interval":7},
+    start_time: "2019-03-21",
+    passwords: ["f3e43a3c4935da6288f22f73085d02a705fbc625fa404830169e5ad5b9fd7e2e", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":false,"facebook":false,"weibo":false,"qq":false,"wechat":false},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">KEEPING</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 积虽累，不积累赘</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/neclick/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-29
+    </span>
+    
+      <span>
+        | <a href="/categories/Java基础/"><i class="fa fa-bookmark"></i>Java基础</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    Scanner类
+  </h1>
+  
+  <article class="passage-article">
+    <h4 id="Java-Scanner-类"><a href="#Java-Scanner-类" class="headerlink" title="Java Scanner 类"></a>Java Scanner 类</h4><blockquote>
+<p>java.util.Scanner是Java5的新特征，我们可以通过 Scanner 类来获取用户的输入。</p>
+</blockquote>
+<p><code>Scanner s = new Scanner(System.in);</code></p>
+<p>使用next和nextLine方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Scanner scan = <span class="keyword">new</span> Scanner(System.in); </span><br><span class="line">	<span class="comment">// 从键盘接收数据  </span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//next方式接收字符串</span></span><br><span class="line">       System.out.println(<span class="string">"next方式接收："</span>);</span><br><span class="line">       <span class="comment">// 判断是否还有输入</span></span><br><span class="line">       <span class="keyword">if</span>(scan.hasNext())&#123;   </span><br><span class="line">       	String str1 = scan.next();</span><br><span class="line">       	System.out.println(<span class="string">"输入的数据为："</span>+str1);  </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Scanner scan = <span class="keyword">new</span> Scanner(System.in); </span><br><span class="line">	<span class="comment">// 从键盘接收数据  </span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//nextLine方式接收字符串</span></span><br><span class="line">       System.out.println(<span class="string">"nextLine方式接收："</span>);</span><br><span class="line">       <span class="comment">// 判断是否还有输入</span></span><br><span class="line">       <span class="keyword">if</span>(scan.hasNextLine())&#123;   </span><br><span class="line">       	String str2 = scan.nextLine();</span><br><span class="line">       	System.out.println(<span class="string">"输入的数据为："</span>+str2);  </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="next-与nextLine-区别"><a href="#next-与nextLine-区别" class="headerlink" title="next()与nextLine()区别"></a>next()与nextLine()区别</h5><h6 id="next"><a href="#next" class="headerlink" title="next():"></a>next():</h6><ol>
+<li>一定要读取到有效字符后才可以结束输入。</li>
+<li>对输入有效字符之前遇到的空白，next()方法会自动将其去掉。</li>
+<li>只有输入有效字符后才将其后面输入的空白作为分隔符或者结束符。</li>
+<li>next()不能得到带有空格的字符串。<h6 id="nextLine"><a href="#nextLine" class="headerlink" title="nextLine():"></a>nextLine():</h6></li>
+<li>以Enter为结束符,也就是说nextLine()方法返回的是输入回车之前的所有字符。</li>
+<li>可以获得空白</li>
+</ol>
+<p>如果要输入int或float类型的数据，在Scanner类中也有支持，但是在输入之前最好先使用 hasNextXxx() 方法进行验证，再使用 nextXxx() 来读取：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Scanner scan = <span class="keyword">new</span> Scanner(System.in);  </span><br><span class="line">	<span class="comment">// 从键盘接收数据  </span></span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span> ;  </span><br><span class="line">       <span class="keyword">float</span> f = <span class="number">0.0f</span> ;  </span><br><span class="line">       System.out.print(<span class="string">"输入整数："</span>);  </span><br><span class="line">       <span class="keyword">if</span>(scan.hasNextInt())&#123;                 </span><br><span class="line">		<span class="comment">// 判断输入的是否是整数  </span></span><br><span class="line">           i = scan.nextInt() ;                </span><br><span class="line">		<span class="comment">// 接收整数  </span></span><br><span class="line">           System.out.println(<span class="string">"整数数据："</span> + i) ;  </span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;                                 </span><br><span class="line">		<span class="comment">// 输入错误的信息  </span></span><br><span class="line">           System.out.println(<span class="string">"输入的不是整数！"</span>) ;  </span><br><span class="line">       &#125;  </span><br><span class="line">       System.out.print(<span class="string">"输入小数："</span>);  </span><br><span class="line">       <span class="keyword">if</span>(scan.hasNextFloat())&#123;              </span><br><span class="line">		<span class="comment">// 判断输入的是否是小数  </span></span><br><span class="line">           f = scan.nextFloat() ;             </span><br><span class="line">		<span class="comment">// 接收小数  </span></span><br><span class="line">           System.out.println(<span class="string">"小数数据："</span> + f) ;  </span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;                                </span><br><span class="line">		<span class="comment">// 输入错误的信息  </span></span><br><span class="line">           System.out.println(<span class="string">"输入的不是小数！"</span>) ;  </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p>以下实例我们可以输入多个数字，并求其总和与平均数，每输入一个数字用回车确认，通过输入非数字来结束输入并输出执行结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Scanner scan = <span class="keyword">new</span> Scanner(System.in);  </span><br><span class="line"> </span><br><span class="line">       <span class="keyword">double</span> sum = <span class="number">0</span>;  </span><br><span class="line">       <span class="keyword">int</span> m = <span class="number">0</span>;  </span><br><span class="line"> </span><br><span class="line">       <span class="keyword">while</span>(scan.hasNextDouble())  </span><br><span class="line">       &#123;  </span><br><span class="line">           <span class="keyword">double</span> x = scan.nextDouble();  </span><br><span class="line">           m = m + <span class="number">1</span>;  </span><br><span class="line">           sum = sum + x;  </span><br><span class="line">       &#125;  </span><br><span class="line"> </span><br><span class="line">       System.out.println(m+<span class="string">"个数的和为"</span>+sum);  </span><br><span class="line">       System.out.println(m+<span class="string">"个数的平均值是"</span>+(sum/m));  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-Scanner-类"><span class="toc-text">Java Scanner 类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#next-与nextLine-区别"><span class="toc-text">next()与nextLine()区别</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#next"><span class="toc-text">next():</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#nextLine"><span class="toc-text">nextLine():</span></a></li></ol></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 陈育滨</div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Scanner/"><i class="fa fa-tags"></i>Scanner</a>
+     
+      <a href="/tags/输入输出/"><i class="fa fa-tags"></i>输入输出</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">推荐博客</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://www.ruanyifeng.com/blog/archives.html" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">Java教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://www.hollischuang.com/" target="_blank">HOLLIS</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.runoob.com/java/java-tutorial.html" target="_blank">菜鸟教程--JAVA</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/Character/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/Number类和Math类/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+  
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

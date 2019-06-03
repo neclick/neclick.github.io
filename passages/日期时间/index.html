@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>日期时间 | 小站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Java基础,日期,时间,">
+  
+
+  
+  <meta name="description" content="陈育滨的小站">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":true},
+    welcome: {"enable":true,"interval":7},
+    start_time: "2019-03-21",
+    passwords: ["f3e43a3c4935da6288f22f73085d02a705fbc625fa404830169e5ad5b9fd7e2e", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":false,"facebook":false,"weibo":false,"qq":false,"wechat":false},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">KEEPING</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 积虽累，不积累赘</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/neclick/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-29
+    </span>
+    
+      <span>
+        | <a href="/categories/Java基础/"><i class="fa fa-bookmark"></i>Java基础</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    日期时间
+  </h1>
+  
+  <article class="passage-article">
+    <h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><ul>
+<li>使用Date对象的 toString()方法来打印当前日期和时间</li>
+</ul>
+<p>比较时间|<br>|:-:|<br>|使用<strong>getTime( )</strong> 方法获取两个日期（自1970年1月1日经历的微秒数值），然后比较这两个值|<br>|使用方法<strong>before( )</strong>，<strong>after( )</strong>和<strong>equals( )</strong>。例如，一个月的12号比18号早，则new Date(99, 2, 12).before(new Date (99, 2, 18))返回true。|<br>|使用<strong>compareTo()</strong>方法，它是由Comparable接口定义的，Date类实现了这个接口。|</p>
+<h5 id="SimpleDateFormat格式化日期"><a href="#SimpleDateFormat格式化日期" class="headerlink" title="SimpleDateFormat格式化日期"></a>SimpleDateFormat格式化日期</h5><p>SimpleDateFormat是一个以语言环境敏感的方式来格式化和分析日期的类。SimpleDateFormat允许你选择任何用户自定义日期时间格式来运行。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.text.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      Date dNow = <span class="keyword">new</span> Date( );</span><br><span class="line">      SimpleDateFormat ft = </span><br><span class="line">      <span class="keyword">new</span> SimpleDateFormat (<span class="string">"E yyyy.MM.dd 'at' hh:mm:ss a zzz"</span>);</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"Current Date: "</span> + ft.format(dNow));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="printf格式化日期"><a href="#printf格式化日期" class="headerlink" title="printf格式化日期"></a>printf格式化日期</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化 Date 对象</span></span><br><span class="line">     Date date = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 使用toString()显示日期和时间</span></span><br><span class="line">     String str = String.format(<span class="string">"Current Date/Time : %tc"</span>, date );</span><br><span class="line"></span><br><span class="line">     System.out.printf(str);</span><br></pre></td></tr></table></figure>
+<p>如果你需要重复提供日期，那么利用这种方式来格式化它的每一部分就有点复杂了。因此，可以利用一个格式化字符串指出要被格式化的参数的索引。<br>索引必须紧跟在%后面，而且必须以$结束。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化 Date 对象</span></span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 使用toString()显示日期和时间</span></span><br><span class="line">System.out.printf(<span class="string">"%1$s %2$tB %2$td, %2$tY"</span>, </span><br><span class="line">                  <span class="string">"Due date:"</span>, date);</span><br></pre></td></tr></table></figure></p>
+<p>或者，可以使用&lt;标志。它表明先前被格式化的参数要被再次使用。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化 Date 对象</span></span><br><span class="line">       Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        </span><br><span class="line">       <span class="comment">// 显示格式化时间</span></span><br><span class="line">       System.out.printf(<span class="string">"%s %tB %&lt;te, %&lt;tY"</span>,</span><br><span class="line">                           <span class="string">"Due date:"</span>, date);</span><br></pre></td></tr></table></figure></p>
+<h5 id="解析字符串为时间"><a href="#解析字符串为时间" class="headerlink" title="解析字符串为时间"></a>解析字符串为时间</h5><p>SimpleDateFormat 类有一些附加的方法，特别是parse()，它试图按照给定的SimpleDateFormat对象的格式化存储来解析字符串。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat ft = <span class="keyword">new</span> SimpleDateFormat (<span class="string">"yyyy-MM-dd"</span>); </span><br><span class="line">      String input = args.length == <span class="number">0</span> ? <span class="string">"1818-11-11"</span> : args[<span class="number">0</span>]; </span><br><span class="line">      System.out.print(input + <span class="string">" Parses as "</span>); </span><br><span class="line">      Date t; </span><br><span class="line">      <span class="keyword">try</span> &#123; </span><br><span class="line">          t = ft.parse(input); </span><br><span class="line">          System.out.println(t); </span><br><span class="line">      &#125; <span class="keyword">catch</span> (ParseException e) &#123; </span><br><span class="line">          System.out.println(<span class="string">"Unparseable using "</span> + ft); </span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Java-休眠-sleep"><a href="#Java-休眠-sleep" class="headerlink" title="Java 休眠(sleep)"></a>Java 休眠(sleep)</h5><p>你可以让程序休眠一毫秒的时间或者到您的计算机的寿命长的任意段时间。例如，下面的程序会休眠3秒：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123; </span><br><span class="line">         System.out.println(<span class="keyword">new</span> Date( ) + <span class="string">"\n"</span>); </span><br><span class="line">         Thread.sleep(<span class="number">5</span>*<span class="number">60</span>*<span class="number">10</span>); </span><br><span class="line">         System.out.println(<span class="keyword">new</span> Date( ) + <span class="string">"\n"</span>); </span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">          System.out.println(<span class="string">"Got an exception!"</span>); </span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="测量时间"><a href="#测量时间" class="headerlink" title="测量时间"></a>测量时间</h5><p>下面的一个例子表明如何测量时间间隔（以毫秒为单位）:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">long</span> start = System.currentTimeMillis( );</span><br><span class="line">         System.out.println(<span class="keyword">new</span> Date( ) + <span class="string">"\n"</span>);</span><br><span class="line">         Thread.sleep(<span class="number">5</span>*<span class="number">60</span>*<span class="number">10</span>);</span><br><span class="line">         System.out.println(<span class="keyword">new</span> Date( ) + <span class="string">"\n"</span>);</span><br><span class="line">         <span class="keyword">long</span> end = System.currentTimeMillis( );</span><br><span class="line">         <span class="keyword">long</span> diff = end - start;</span><br><span class="line">         System.out.println(<span class="string">"Difference is : "</span> + diff);</span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">         System.out.println(<span class="string">"Got an exception!"</span>);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h5><p>我们现在已经能够格式化并创建一个日期对象了，但是我们如何才能设置和获取日期数据的特定部分呢，比如说小时，日，或者分钟? 我们又如何在日期的这些部分加上或者减去值呢? 答案是使用Calendar 类。<br>Calendar类的功能要比Date类强大很多，而且在实现方式上也比Date类要复杂一些。<br>Calendar类是一个抽象类，在实际使用时实现特定的子类的对象，创建对象的过程对程序员来说是透明的，只需要使用getInstance方法创建即可。</p>
+<ul>
+<li>创建一个代表系统当前日期的Calendar对象<br><code>Calendar c = Calendar.getInstance();//默认是当前日期</code></li>
+<li>创建一个指定日期的Calendar对象<br>使用Calendar类代表特定的时间，需要首先创建一个Calendar的对象，然后再设定该对象中的年月日参数来完成。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个代表2009年6月12日的Calendar对象</span></span><br><span class="line">Calendar c1 = Calendar.getInstance();</span><br><span class="line">c1.set(<span class="number">2009</span>, <span class="number">6</span> - <span class="number">1</span>, <span class="number">12</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>Calendar类对象字段类型<br><img src="https://note.youdao.com/yws/api/personal/file/EF608F67DE974CF6BA3B8B6DB1796C55?method=download&amp;shareKey=2e782bdd334954c07e217f0e74710694" alt="image"></p>
+</blockquote>
+<h5 id="Calendar类对象信息的设置"><a href="#Calendar类对象信息的设置" class="headerlink" title="Calendar类对象信息的设置"></a>Calendar类对象信息的设置</h5><p><img src="https://note.youdao.com/yws/api/personal/file/BD0EA0EF53BA4518AFE8CD8904AE10B6?method=download&amp;shareKey=5a26c9f9fcb81747a4f5e566dedb8a74" alt="image"></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/A22C517E58A64188B5256BB8F6DEAD40?method=download&amp;shareKey=ae0b6854b329052e868cecdd85ed30a8" alt="image"></p>
+<h5 id="GregorianCalendar类"><a href="#GregorianCalendar类" class="headerlink" title="GregorianCalendar类"></a>GregorianCalendar类</h5><p>Calendar类实现了公历日历，GregorianCalendar是Calendar类的一个具体实现。<br>Calendar 的getInstance（）方法返回一个默认用当前的语言环境和时区初始化的GregorianCalendar对象。GregorianCalendar定义了两个字段：AD和BC。这些代表公历定义的两个时代。<br>下面列出GregorianCalendar对象的几个构造方法：<br><img src="https://note.youdao.com/yws/api/personal/file/CFA90153BC5F453B98721A52A7A2C4A0?method=download&amp;shareKey=8a306ff6e413b62627c0f1e3f621d0f1" alt="image"></p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Date"><span class="toc-text">Date</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#SimpleDateFormat格式化日期"><span class="toc-text">SimpleDateFormat格式化日期</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#printf格式化日期"><span class="toc-text">printf格式化日期</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解析字符串为时间"><span class="toc-text">解析字符串为时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Java-休眠-sleep"><span class="toc-text">Java 休眠(sleep)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#测量时间"><span class="toc-text">测量时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Calendar类"><span class="toc-text">Calendar类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Calendar类对象信息的设置"><span class="toc-text">Calendar类对象信息的设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GregorianCalendar类"><span class="toc-text">GregorianCalendar类</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 陈育滨</div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/日期/"><i class="fa fa-tags"></i>日期</a>
+     
+      <a href="/tags/时间/"><i class="fa fa-tags"></i>时间</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">推荐博客</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://www.ruanyifeng.com/blog/archives.html" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">Java教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://www.hollischuang.com/" target="_blank">HOLLIS</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.runoob.com/java/java-tutorial.html" target="_blank">菜鸟教程--JAVA</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/方法/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/类/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+  
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

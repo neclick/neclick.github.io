@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Dong Yuanxin">
+  
+  
+  <title>变量 | 小站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Java基础,java,变量,">
+  
+
+  
+  <meta name="description" content="陈育滨的小站">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":true},
+    welcome: {"enable":true,"interval":7},
+    start_time: "2019-03-21",
+    passwords: ["f3e43a3c4935da6288f22f73085d02a705fbc625fa404830169e5ad5b9fd7e2e", ],
+    is_post: true,
+    lock: false,
+    author: "Dong Yuanxin",
+    share: {"twitter":false,"facebook":false,"weibo":false,"qq":false,"wechat":false},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">KEEPING</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 积虽累，不积累赘</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/neclick/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-29
+    </span>
+    
+      <span>
+        | <a href="/categories/Java基础/"><i class="fa fa-bookmark"></i>Java基础</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    变量
+  </h1>
+  
+  <article class="passage-article">
+    <h4 id="Java局部变量"><a href="#Java局部变量" class="headerlink" title="Java局部变量"></a>Java局部变量</h4><ul>
+<li>局部变量声明在方法、 构造方法或者语句块中;</li>
+<li>局部变量在方法、 构造方法、 或者语句块被执行的时候创建,当它们执行完成后,<strong>变量将会被销毁</strong>;</li>
+<li>访问修饰符不能用于局部变量;</li>
+<li>局部变量只在声明它的方法、构造方法或者语句块中可见;</li>
+<li>局部变量是在栈上分配的。</li>
+<li><strong>局部变量没有默认值</strong>,所以局部变量被声明后,<strong>必须经过初始化</strong>,才可以使用。</li>
+</ul>
+<h4 id="实例变量"><a href="#实例变量" class="headerlink" title="实例变量"></a>实例变量</h4><ul>
+<li>实例变量声明在一个类中,但在方法、构造方法和语句块之外;</li>
+<li>当一个对象被<strong>实例化之后</strong>,每个<strong>实例变量的值就跟着确定</strong>;</li>
+<li><strong>实例变量在对象创建的时候创建,在对象被销毁的时候销毁</strong>;</li>
+<li>实例变量的值应该至少被一个方法、构造方法或者语句块引用,使得外部能够通过这些方式获取实例变量信息;</li>
+<li>实例变量可以声明在使用前或者使用后;</li>
+<li>访问修饰符可以修饰实例变量;</li>
+<li>实例变量对于类中的方法、构造方法或者语句块是可见的。一般情况下应该把实例变量设为私有。通过使用访问修饰符可以使实例变量对子类可见;</li>
+<li>实例变量具有默认值。数值型变量的默认值是0,布尔型变量的默认值是false,引用类型变量的默认值是null。</li>
+<li>变量的值可以在声明时指定,也可以在构造方法中指定;</li>
+<li>实例变量可以<strong>直接通过变量名访问</strong>。 但在<strong>静态方法以及其他类中</strong>,就应该使用完全限定名:<br><strong>ObejectReference.VariableNameo</strong></li>
+</ul>
+<h4 id="类变量"><a href="#类变量" class="headerlink" title="类变量"></a>类变量</h4><ul>
+<li>类变量也称为静态变量,在类中以static关键字声明,但必须在方法、构造方法和语句块之外。</li>
+<li>无论一个类创建了多少个对象,类只拥有类变量的一份拷贝。静态变量除了被声明为常量外很少使用。常量是指声明为public/private,final和static类型的变量。常量初始化后不可改变。<strong>静态变量储存在静态存储区</strong>。经常被声明为常量,很少单独使用static声明变量。<strong>静态变量在程序开始时创建,在程序结束时销毁</strong>。</li>
+<li>与实例变量具有相似的可见性。但为了对类的使用者可见,大多数静态变量声明为public类型.</li>
+<li>默认值和实例变量相似。数值型变量默认值是0,布尔型默认值是false,引用类型默认值是null。变量的值可以在声明的时候指定,也可以在构造方法中指定。此外,<strong>静态变量还可以在静态语句块中初始化</strong>。</li>
+<li>静态变量可以通过:<br>ClassName.VariableName的方式访问。</li>
+<li>类变量被声明为public static fina类型时，类变量名称<strong>必须使用大写字母</strong>。如果静态变量不是pulic和final类型，其命名方式与实例变量以及局部变量的命名方式一致。</li>
+</ul>
+<h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><p>static关键字用来声明独立于对象的静态变量，无论一个类实例化多少对象，它的<strong>静态变量只有一份拷贝</strong>。静态变量也被称为类变量。<strong>局部变量不能被声明为static变量</strong>。</p>
+<h4 id="final变量"><a href="#final变量" class="headerlink" title="final变量"></a>final变量</h4><p>final变量能被显式地初始化并且<strong>只能初始化一次</strong>。被声明为final的对象的<strong>引用不能指向不同的对象</strong>。但是final对象里的数据可以被改变。也就是说<strong>final对象的引用不能改变，但是里面的值可以改变</strong>。<br>final修饰符通常和static修饰符一起使用来创建类常量。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java局部变量"><span class="toc-text">Java局部变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例变量"><span class="toc-text">实例变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类变量"><span class="toc-text">类变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#静态变量"><span class="toc-text">静态变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final变量"><span class="toc-text">final变量</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 陈育滨</div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/java/"><i class="fa fa-tags"></i>java</a>
+     
+      <a href="/tags/变量/"><i class="fa fa-tags"></i>变量</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">推荐博客</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="http://www.ruanyifeng.com/blog/archives.html" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">Java教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://www.hollischuang.com/" target="_blank">HOLLIS</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.runoob.com/java/java-tutorial.html" target="_blank">菜鸟教程--JAVA</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">抓到我</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">掘金</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://segmentfault.com/" target="_blank">思否</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: yuanxin.me@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/修饰符/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/命令行/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+  
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
